@@ -1,0 +1,23 @@
+.login-box{
+  height: 520px;
+background:rgba(0,0,0,0.5);
+  color:#fff;
+  margin-top: 100px;
+}
+.login-box2{
+    height: 350px;
+	background:rgba(0,0,0,0.5);
+    color:#fff;
+    margin-top:170px;
+}
+.body
+{
+  background:url(website/images/2019-interior-design-trends.jpeg);
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+ .form-border
+ {
+   border: 1px solid #68afff;
+   border-radius: 50px;
+ }
