@@ -74,6 +74,8 @@ class RegisterController extends Controller
         $user->password =  Hash::make($data['password']);
         $user->save();
         return $user;
+        Session::put('user', $user);
+
         // return User::create([
         //     'firstname' => $data['firstname'],
         //     'lastname' => $data['lastname'],

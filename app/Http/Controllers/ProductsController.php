@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Session;
 use App\product;
 use App\product_type;
+use Gate;
 
 class ProductsController extends Controller
 {
@@ -14,11 +16,19 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
+        if(!Gate::allows('isAdmin'))
+        {
+            abort("404", "Sorry page you've requested not found");
+        }
         $data = product::all();
-        $type = product_type::all();
-        return view('products.index', compact('data','type'));
+        return view('products.index', compact('data'));
     }
 
     /**
@@ -28,6 +38,10 @@ class ProductsController extends Controller
      */
     public function create()
     {
+        if(!Gate::allows('isAdmin'))
+        {
+            abort("404", "Sorry page you've requested not found");
+        }
         $data = product_type::all();
         return view('products.create', compact('data'));
     }
@@ -72,6 +86,10 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
+        if(!Gate::allows('isAdmin'))
+        {
+            abort("404", "Sorry page you've requested not found");
+        }
         $data = product::find($id);
         return view('products.show', compact('data'));
     }
@@ -84,8 +102,13 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
+        if(!Gate::allows('isAdmin'))
+        {
+            abort("404", "Sorry page you've requested not found");
+        }
         $data = product::find($id);
-        return view('products.edit', compact('data'));
+        $type = product_type::all();
+        return view('products.edit', compact('data','type'));
     }
 
     /**
@@ -97,7 +120,33 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pro = product::find($id);
+        Session::put('image', $pro->image);
+        $pro->productname = $request->productname;
+        $pro->producttypeid = $request->producttypeid;
+        $pro->height = $request->height;
+        $pro->width = $request->width;
+        $pro->price = $request->price;
+        $pro->quantity = $request->quantity;
+        if($request->hasFile('image')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('image')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
+            $pro->image = $fileNameToStore;
+        }
+        else
+        {
+            $pro->image=Session('image');
+        }
+        $pro->save();
+        return redirect('/products');
     }
 
     /**

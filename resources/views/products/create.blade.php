@@ -1,10 +1,11 @@
-@extends('layout.dashboard')
+@extends('layout.newdashboard')
 @section('title')
     Product
 @endsection
-@section('DashboardSection')
 
-<h2 class="ml-5 py-4">Add new Product</h2>
+@section('DashboardSection')
+<h2 class="text-center mt-5">Add new Product</h2>
+
 <div class="row justify-content-center">
     <div class="col-md-10 col-sm-12 ">
         {{Form::open(array('url'=>'/products','method'=>'post', 'enctype' => 'multipart/form-data'))}}
@@ -45,7 +46,7 @@
                     </div>
                 </div>
             </div>
-            {{Form::submit("Insert" ,array('class' => 'btn btn-outline-info btn-block'))}}
+            {{Form::submit("Insert" ,array('class' => 'btn btn-outline-dark btn-block'))}}
         {{Form::close()}}
     </div>
 </div>

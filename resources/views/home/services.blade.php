@@ -201,7 +201,7 @@ Services
     <!-- End Specialize Section -->
 
     <!-- Specialize Section -->
-    <section class="specialize-section-two alternate mb-5" style="margin-top:-20px">
+    {{-- <section class="specialize-section-two alternate mb-5" style="margin-top:-20px">
         <div class="auto-container">
             <div class="row">
                 <!-- Title Column -->
@@ -278,7 +278,7 @@ Services
             </div>
 
         </div>
-    </section>
+    </section> --}}
     <!-- End Specialize Section -->
     
 

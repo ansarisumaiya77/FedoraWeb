@@ -1,7 +1,29 @@
-@extends('layouts.app')
+@extends('layout.website')
+@section('title')
+    Reset Password
+@endsection
 
-@section('content')
-<div class="container">
+@section('WebsiteSection')
+
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(website/images/background/10.jpg);">
+        <div class="auto-container">
+            <div class="inner-container clearfix">
+                <div class="title-box">
+                    <h1>Reset Password</h1>
+                    <span class="title">The Interior speak for themselves</span>
+                </div>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="index-2.html">Home</a></li>
+                    <li>Reset Password</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--End Page Title-->
+
+
+<div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

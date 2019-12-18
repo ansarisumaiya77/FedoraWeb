@@ -5,10 +5,12 @@
 <head>
 <meta charset="utf-8">
 <title>@yield("title")</title>
+
 <!-- Stylesheets -->
 <link href={{asset("website/css/bootstrap.css")}} rel="stylesheet">
 <link href={{asset("website/css/style.css")}} rel="stylesheet">
-<link href={{asset("website/css/responsive.css")}} rel="stylesheet">   
+<link href={{asset("website/css/responsive.css")}} rel="stylesheet">
+   
 <!--Color Switcher Mockup-->
 <link href={{asset("website/css/color-switcher-design.css")}} rel="stylesheet">
 <!--Color Themes-->
@@ -25,8 +27,48 @@
 
 <body>
 
+
+
     <!-- Main Header-->
     <header class="main-header header-style-one">
+            <div class="container-fluid">
+                <div class="row justify-content-right">
+                    <div class="col-12" style="background-color: black; color:white">
+                        <nav class="nav float-right mr-5">
+                            @can('isAdmin')
+                                <a class="nav-link" href="/products">
+                                    Dashboard
+                                </a>
+                                <a class="nav-link" href="/profile">
+                                    Profile
+                                </a>
+                            @endcan
+                            @can('isEmployee')
+                                <a class="nav-link" href="/assignproject">
+                                    Assign Project
+                                </a>
+                                <a class="nav-link" href="/profile">
+                                    Profile
+                                </a>
+                            @endcan
+                            @can('isCustomer')
+                                <a class="nav-link" href="/profile">
+                                    Profile
+                                </a>
+                                <a class="nav-link" href="/orders">
+                                    Orders
+                                </a>
+                                <a class="nav-link" href="/cart">
+                                    <span class="fa fa-shopping-basket"></span>
+                                    Cart List
+                                    <span class="badge">{{ Session ::has('cart') ? Session::get('cart')->quantity :''}}</span>
+                                </a>
+                            @endcan
+                        </nav>
+                    </div>    
+                </div>
+            </div>
+            
         <div class="auto-container">
             <div class="header-lower">
                 <div class="main-box clearfix">
@@ -46,37 +88,16 @@
                             
                             <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
                                 <ul class="navigation clearfix">
-                                    {{-- <li class="current dropdown"><a href="/">Home</a>
-                                        <ul>
-                                            <li class="dropdown"><a href="#">Header Styles</a>
-                                                <ul>
-                                                    <li><a href="index-2.html">Header Style One</a></li>
-                                                    <li><a href="index-3.html">Header Style Two</a></li>
-                                                    <li><a href="index-4.html">Header Style Three</a></li>
-                                                    <li><a href="index-5.html">Header Style Four</a></li>
-                                                    <li><a href="index-6.html">Header Style Five</a></li>
-                                                    <li><a href="index-7.html">Header Style Six</a></li>
-                                                    <li><a href="about.html">Header Style Seven</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="index-2.html">Home page 01</a></li>
-                                            <li><a href="index-3.html">Home page 02</a></li>
-                                            <li><a href="index-4.html">Home page 03</a></li>
-                                            <li><a href="index-5.html">Home page 04</a></li>
-                                            <li><a href="index-6.html">Home page 05</a></li>
-                                            <li><a href="index-7.html">Home page 06</a></li>
-                                        </ul>
-                                    </li> --}}
-                                    <li><a href="/admin/dashboard">Dashboard</a></li>
                                     <li><a href="/">Home</a></li>
                                     <li><a href="/about">About</a></li>
                                     <li><a href="/services">Services</a></li>
                                     <li><a href="/contact">Contact</a></li>
                                     <li><a href="/faq">FAQ's</a></li>
                                     <li><a href="/shop">Shop</a></li>
+                                    <li><a href="/project">Projects</a></li>
                                     @auth
                                         <li>
-                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                            <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                             document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
@@ -134,7 +155,7 @@
                         </nav><!-- Main Menu End-->                        
 
                         <!-- Outer Box-->
-                        <div class="outer-box">
+                        {{-- <div class="outer-box">
                             <!--Search Box-->
                             <div class="search-box-outer">
                                 <div class="dropdown">
@@ -153,7 +174,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -227,11 +248,12 @@
                                     <h2 class="widget-title">Useful links</h2>
                                     <div class="widget-content">
                                         <ul class="list">
-                                            <li><a href="about.html">About</a></li>
-                                            <li><a href="services.html">Services</a></li>
-                                            <li><a href="projects.html">Project</a></li>
-                                            <li><a href="blog-classic.html">News</a></li>
-                                            <li><a href="contact.html">Contact Us</a></li>
+                                            <li><a href="/about">About</a></li>
+                                            <li><a href="/services">Services</a></li>
+                                            <li><a href="/project">Project</a></li>
+                                            <li><a href="/shop">Shop</a></li>
+                                            <li><a href="/faq">FAQ' s</a></li>
+                                            <li><a href="/contact">Contact Us</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -337,6 +359,7 @@
 <script src={{asset("website/js/script.js")}}></script>
 <!-- Color Setting -->
 <script src={{asset("website/js/color-settings.js")}}></script>
+@yield('scripts')
 </body>
 
 <!-- Mirrored from expert-themes.com/html/contra/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 24 Apr 2019 22:01:09 GMT -->

@@ -35,30 +35,23 @@ Contact us
                         </div>
 
                         <div class="contact-form">
-                            <form method="post" action="https://expert-themes.com/html/contra/sendemail.php" id="contact-form">
+                            <form method="post" action="/postcontact">
+                                {{ csrf_field() }}
                                 <div class="row">
                                     <div class="form-group col-lg-6 col-md-12 col-sm-12">
-                                        <input type="text" name="username" placeholder="Name" required="">
+                                        <input type="text" name="username" placeholder="Name" required>
                                     </div>
-                                    
-                                    {{-- <div class="form-group col-lg-6 col-md-12 col-sm-12">
-                                        <input type="text" name="phone" placeholder="Phone" required="">
-                                    </div>
-
                                     <div class="form-group col-lg-6 col-md-12 col-sm-12">
-                                        <input type="text" name="company" placeholder="Company">
-                                    </div> --}}
-
-                                    <div class="form-group col-lg-6 col-md-12 col-sm-12">
-                                        <input type="email" name="email" placeholder="Email" required="">
+                                        <input type="email" name="email" placeholder="Email" required>
                                     </div>
 
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                        <textarea name="message" placeholder="Massage"></textarea>
+                                        <textarea name="message" placeholder="Message or Feedback"></textarea>
                                     </div>
 
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                        <button class="theme-btn btn-style-three" type="submit" name="submit-form">Submit</button>
+                                        <input type="submit" class="theme-btn btn-style-three" value="Submit">
+                                        {{-- <button class="theme-btn btn-style-three" type="submit" name="submit-form">Submit</button> --}}
                                     </div>
                                 </div>
                             </form>

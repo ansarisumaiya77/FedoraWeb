@@ -1,8 +1,10 @@
-@extends('layout.dashboard')
+@extends('layout.newdashboard')
 @section('title')
     Product
 @endsection
+
 @section('DashboardSection')
+<h2 class="text-center mt-5">Product Details</h2>
 
 <h2 class="p-4">{{$data->productname}}</h2>
 <div class="row justify-content-center text-center">
@@ -30,26 +32,13 @@
                         <td>Category</td>
                         <td>{{$data->producttypeid}}</td>
                     </tr>
-                    {{-- <tr>
-                        <td colspan="2">Image</td>
-                        <td>
-                            <img src="/storage/images/{{$data->image}}" class="img-fluid" alt="{{$data->productname}}">
-                        </td>
-                    </tr> --}}
-                    {{-- <tr>
-                        <td colspan="2">
-                            {{Form::open(array('url'=>'/products/'.$data->id,'method'=>'delete'))}}
-                                {{Form::submit("Delete" ,array('class' => 'btn btn-outline-info btn-block'))}}
-                            {{Form::close()}}
-                        </td>
-                    </tr> --}}
                 </table>
             </div>
             <div class="col-md-5 col-xs-12">
                 <img src="/storage/images/{{$data->image}}" class="img-fluid" alt="{{$data->productname}}">
             </div>
             {{Form::open(array('url'=>'/products/'.$data->id,'method'=>'delete'))}}
-                {{Form::submit("Delete" ,array('class' => 'btn btn-block btn-outline-info mt-3'))}}
+                {{Form::submit("Delete" ,array('class' => 'btn btn-block btn-outline-dark mt-3'))}}
             {{Form::close()}}
         </div>
     </div>

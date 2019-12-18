@@ -1,10 +1,12 @@
-@extends('layout.dashboard')
+@extends('layout.newdashboard')
 @section('title')
     Product Type
 @endsection
-@section('DashboardSection')
 
-<h2>Product Types</h2>
+@section('DashboardSection')
+<h2 class="text-center mt-5">Product Types</h2>
+
+
 <div class="row justify-content-center text-center">
     <div class="col-md-6 col-xs-12">
         <table class="table">
@@ -20,8 +22,8 @@
                 <tr>
                         <td>{{$item->productType}}</td>
                 <td>
-                    <a href="/producttype/{{$item->id}}" class="btn btn-outline-info">Detail</a>
-                    <a href="/producttype/{{$item->id}}/edit" class="btn btn-outline-info">Edit</a>
+                    <a href="/producttype/{{$item->id}}" class="btn btn-outline-dark">Detail</a>
+                    <a href="/producttype/{{$item->id}}/edit" class="btn btn-outline-dark">Edit</a>
                 </td>
                     </tr>
                 @endforeach

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\product_type;
+use Gate;
 
 class ProductTypeController extends Controller
 {
@@ -18,6 +19,11 @@ class ProductTypeController extends Controller
      */
     public function index()
     {
+        if(!Gate::allows('isAdmin'))
+        {
+            abort("404", "Sorry page you've requested not found");
+        }
+
         $data = product_type::all();
         return view('producttype.index', compact('data'));
     }
@@ -29,6 +35,10 @@ class ProductTypeController extends Controller
      */
     public function create()
     {
+        if(!Gate::allows('isAdmin'))
+        {
+            abort("404", "Sorry page you've requested not found");
+        }
         return view('productType.create');
     }
 
@@ -54,6 +64,10 @@ class ProductTypeController extends Controller
      */
     public function show($id)
     {
+        if(!Gate::allows('isAdmin'))
+        {
+            abort("404", "Sorry page you've requested not found");
+        }
         $data = product_type::find($id);
         return view('producttype.show', compact('data'));
     }
@@ -66,6 +80,10 @@ class ProductTypeController extends Controller
      */
     public function edit($id)
     {
+        if(!Gate::allows('isAdmin'))
+        {
+            abort("404", "Sorry page you've requested not found");
+        }
         $data = product_type::find($id);
         return view('producttype.edit', compact('data'));
     }

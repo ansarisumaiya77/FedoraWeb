@@ -17,30 +17,30 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href={{asset("dashboard/css/vertical-layout-dark/style.css")}}>
-  <link rel="stylesheet" href={{asset("dashboard/css/custom.css")}}>  
+  {{-- <link rel="stylesheet" href={{asset("dashboard/css/custom.css")}}>   --}}
   <!-- endinject -->
   <link rel="shortcut icon" href={{asset("dashboard/images/favicon.png")}} />
   <!-- font-awesome -->
-  <link rel="stylesheet" href={{asset("css/fontawesome.min.css")}}>
- 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ @yield('css')
 </head>
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="/"><img src={{asset("dashboard/images/footer-logo.png")}} class="" alt="logo"/></a>
+        <a class="navbar-brand brand-logo" href="/"><img src={{asset("dashboard/images/dashboardlogo.png")}} class="" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-          <span class="ti-layout-grid2"></span>
+          <span class="fa fa-chevron-left"></span>
         </button>
         <ul class="navbar-nav mr-lg-2">
           <li class="nav-item nav-search d-none d-lg-block">
             <div class="input-group">
               <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
                 <span class="input-group-text" id="search">
-                  <i class="fas fa-search" aria-hidden="true"></i>
+                  <i class="fa fa-search" aria-hidden="true"></i>
                 </span>
               </div>
               <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
@@ -92,7 +92,7 @@
               </a>
             </div>
           </li>
-          <li class="nav-item dropdown">
+          {{-- <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
               <i class="ti-bell mx-0"></i>
               <span class="count"></span>
@@ -159,7 +159,7 @@
             <a class="nav-link" href="#">
               <i class="ti-more"></i>
             </a>
-          </li>
+          </li> --}}
         </ul>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="ti-layout-grid2"></span>
@@ -323,17 +323,20 @@
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link" href="index.html">
               <i class="ti-home menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
-          </li>
+          </li> --}}
+
+          {{-- Product Type --}}
+
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-advanced" aria-expanded="false" aria-controls="ui-advanced">
-              <i class="ti-view-list menu-icon"></i>
+              <i class=""></i>
               <span class="menu-title">Product Type</span>
-              <i class="menu-arrow"></i>
+              <i class="fa fa-arrow-down"></i>
             </a>
             <div class="collapse" id="ui-advanced">
               <ul class="nav flex-column sub-menu">
@@ -342,11 +345,14 @@
               </ul>
             </div>
           </li>
+
+          {{-- Products --}}
+
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-advanced2" aria-expanded="false" aria-controls="ui-advanced2">
-              <i class="ti-view-list menu-icon"></i>
+            <a class="nav-link" data-toggle="collapse" href="#ui-advanced2" aria-expanded="false" aria-controls="#ui-advanced2">
+              <i class=""></i>
               <span class="menu-title">Products</span>
-              <i class="menu-arrow"></i>
+              <i class="fa fa-arrow-down"></i>
             </a>
             <div class="collapse" id="ui-advanced2">
               <ul class="nav flex-column sub-menu">
@@ -355,6 +361,138 @@
               </ul>
             </div>
           </li>
+
+          {{-- Project Type --}}
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-advanced3" aria-expanded="false" aria-controls="ui-advanced3">
+              <i class=""></i>
+              <span class="menu-title">Project Types</span>
+              <i class="fa fa-arrow-down"></i>
+            </a>
+            <div class="collapse" id="ui-advanced3">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/projecttypes">Project Types</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/projecttypes/create">Insert Project Type</a></li>
+              </ul>
+            </div>
+          </li>
+
+          {{-- Projects --}}
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-advanced4" aria-expanded="false" aria-controls="ui-advanced4">
+              <i class=""></i>
+              <span class="menu-title">Projects</span>
+              <i class="fa fa-arrow-down"></i>
+            </a>
+            <div class="collapse" id="ui-advanced4">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/projects">Projects</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/projects/create">Insert Project</a></li>
+              </ul>
+            </div>
+          </li>
+
+          {{-- Renovation Booking --}}
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-advanced5" aria-expanded="false" aria-controls="ui-advanced5">
+              <i class=""></i>
+              <span class="menu-title">Renovation Bookings</span>
+              <i class="fa fa-arrow-down"></i>
+            </a>
+            <div class="collapse" id="ui-advanced5">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/booking/index">All</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/booking/new">New Booking</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/booking/confirmed">Confirmed Booking</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/booking/process">In Process</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/booking/completed">Completed</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/booking/rejected">Rejected</a></li>
+              </ul>
+            </div>
+          </li>
+
+          {{-- Orders --}}
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-advanced6" aria-expanded="false" aria-controls="ui-advanced6">
+              <i class=""></i>
+              <span class="menu-title">Orders</span>
+              <i class="fa fa-arrow-down"></i>
+            </a>
+            <div class="collapse" id="ui-advanced6">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/order/index">All</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/order/new">New Orders</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/order/confirmed">Confirmed</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/order/process">In Process</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/order/completed">Completed</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/order/rejected">Rejected</a></li>
+              </ul>
+            </div>
+          </li>
+
+          
+          {{-- Employees --}}
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-advanced7" aria-expanded="false" aria-controls="ui-advanced7">
+              <i class=""></i>
+              <span class="menu-title">Employees</span>
+              <i class="fa fa-arrow-down"></i>
+            </a>
+            <div class="collapse" id="ui-advanced7">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/employees">Show Employees</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/employees/create">Insert new Employee</a></li>
+              </ul>
+            </div>
+          </li>
+
+
+          {{-- Teams --}}
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-advanced8" aria-expanded="false" aria-controls="ui-advanced8">
+              <i class=""></i>
+              <span class="menu-title">Teams</span>
+              <i class="fa fa-arrow-down"></i>
+            </a>
+            <div class="collapse" id="ui-advanced8">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/teams">Show Teams</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/teams/create">Insert new Team</a></li>
+              </ul>
+            </div>
+          </li>
+
+          {{-- Teams --}}
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-advanced9" aria-expanded="false" aria-controls="ui-advanced9">
+              <i class=""></i>
+              <span class="menu-title">Assign Projects</span>
+              <i class="fa fa-arrow-down"></i>
+            </a>
+            <div class="collapse" id="ui-advanced9">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/assignprojects">Show Assign Projects</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/assignprojects/create">Insert new Team</a></li>
+              </ul>
+            </div>
+          </li>
+  
+            {{-- Feedbacks --}}
+
+          <li class="nav-item">
+              <li class="nav-item">
+                <a class="nav-link" href="/contact/index">Feedbacks</a>
+              </li>
+          </li>
+
+  
         </ul>
       </nav>
       <!-- partial -->
@@ -362,35 +500,6 @@
         <div class="content-wrapper">
           <div class="row">
             <div class="col-md-12 grid-margin">
-              {{-- <div class="row">
-                <div class="col-12 col-xl-5 mb-4 mb-xl-0">
-                  <h4 class="font-weight-bold">Hi, Welcomeback!</h4>
-                  <h4 class="font-weight-normal mb-0">JustDo Dashboard,</h4>
-                </div>
-                <div class="col-12 col-xl-7">
-                  <div class="d-flex align-items-center justify-content-between flex-wrap">
-                    <div class="border-right pr-4 mb-3 mb-xl-0">
-                      <p class="text-muted">Balance</p>
-                      <h4 class="mb-0 font-weight-bold">$40079.60 M</h4>
-                    </div>
-                    <div class="border-right pr-4 mb-3 mb-xl-0">
-                      <p class="text-muted">Today’s profit</p>
-                      <h4 class="mb-0 font-weight-bold">$175.00 M</h4>
-                    </div>
-                    <div class="border-right pr-4 mb-3 mb-xl-0">
-                      <p class="text-muted">Purchases</p>
-                      <h4 class="mb-0 font-weight-bold">4006</h4>
-                    </div>
-                    <div class="pr-3 mb-3 mb-xl-0">
-                      <p class="text-muted">Downloads</p>
-                      <h4 class="mb-0 font-weight-bold">4006</h4>
-                    </div>
-                    <div class="mb-3 mb-xl-0">
-                      <button class="btn btn-warning rounded-0 text-white">Downloads</button>
-                    </div>
-                  </div>
-                </div>
-              </div> --}}
               @yield("DashboardSection")
             </div>
           </div>
@@ -426,6 +535,7 @@
   <!-- Custom js for this page-->
   <script src={{asset("dashboard/js/dashboard.js")}}></script>
   <!-- End custom js for this page-->
+  @yield('javascript')
 </body>
 </html>
 

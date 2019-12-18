@@ -14,7 +14,7 @@ Fedora
                         <h2>Architecture is a <br> Visual Art.</h2>
                         <div class="text">The buildings speak for themselves</div>
                         <div class="link-box">
-                            <a href="about.html" class="theme-btn btn-style-one">Check Art</a>
+                            <a href="/about" class="theme-btn btn-style-one">Check Art</a>
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,7 @@ Fedora
                         <h2>Architecture is a <br> Visual Art.</h2>
                         <div class="text">The buildings speak for themselves</div>
                         <div class="link-box">
-                            <a href="about.html" class="theme-btn btn-style-one">Check Art</a>
+                            <a href="/about" class="theme-btn btn-style-one">Check Art</a>
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@ Fedora
                         <h2>Architecture is a <br> Visual Art.</h2>
                         <div class="text">The buildings speak for themselves</div>
                         <div class="link-box">
-                            <a href="about.html" class="theme-btn btn-style-one">Check Art</a>
+                            <a href="/about" class="theme-btn btn-style-one">Check Art</a>
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@ Fedora
     <!--End About Section -->
     
     <!-- Services Section -->
-    <section class="services-section col-md-12 col-xs-12">
+    {{-- <section class="services-section col-md-12 col-xs-12">
         <div class="upper-box" style="background-image: url(website/images/background/2.jpg);">
             <div class="auto-container">    
                 <div class="sec-title text-center light">
@@ -251,8 +251,9 @@ Fedora
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--End Services Section -->
+    
     <!-- Fun Fact Section -->
     <div class="row justify-content-center">
         <div class="col-md-11 col-xs-12">

@@ -1,6 +1,25 @@
-@extends('layouts.app')
+@extends('layout.website')
 
-@section('content')
+@section('WebsiteSection')
+
+
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(website/images/background/10.jpg);">
+        <div class="auto-container">
+            <div class="inner-container clearfix">
+                <div class="title-box">
+                    <h1>About Us</h1>
+                    <span class="title">The Interior speak for themselves</span>
+                </div>
+                <ul class="bread-crumb clearfix">
+                    <li><a href="index-2.html">Home</a></li>
+                    <li>About Us</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--End Page Title-->
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
